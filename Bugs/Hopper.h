@@ -16,7 +16,8 @@ namespace bugs
         public:
         Hopper(const int id, const int posX, const int posY, const int direction, const int size, const int hopLength)
         : Bug(id, posX, posY, direction, size) {this->hopLength = hopLength;}
-        void move() override;
+        void move(int &maxX, int &maxY) override;
+        string toString() override;
         ~Hopper() override;
     };
 }

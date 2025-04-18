@@ -4,30 +4,47 @@
 
 #include "GameBoard.h"
 
+#include <iostream>
+#include <ostream>
+
 namespace board {
 
-    GameBoard::GameBoard(const int width, const int height, const vector<Bug *> &bugs) {
+    GameBoard::GameBoard(const int width, const int height, const vector<Bug *> &bugs)
+    {
         this->boardWidth = width;
         this->boardHeight = height;
         this->boardBugs = bugs;
         this->boardCells = initBoard(boardBugs);
     }
 
-    int GameBoard::getBoardWidth() const {
+    int GameBoard::getBoardWidth() const
+    {
         return this->boardWidth;
     }
 
-    int GameBoard::getPositionKey(const Position &pos) {
+    int GameBoard::getPositionKey(const Position &pos)
+    {
         return pos.x * 100 + pos.y;
     }
 
-    unordered_map<int, vector<Bug*>> GameBoard::initBoard(const vector<Bug*> &bugs) {
+    unordered_map<int, vector<Bug*>> GameBoard::initBoard(const vector<Bug*> &bugs)
+    {
         unordered_map<int, vector<Bug*>> boardCells;
-        for (auto bug: bugs) {
+        for (auto bug: bugs)
+        {
             int key = getPositionKey(bug->getPosition());
             boardCells[key].push_back(bug);
         }
         return boardCells;
+    }
+
+    void GameBoard::displayAllBugs() const
+    {
+        cout << "Displaying bugs in the game." << endl;
+        for (const auto bug: boardBugs)
+        {
+            cout << bug->toString() << endl;
+        }
     }
 
 } // board

@@ -30,6 +30,8 @@ class GameBoard
 
     static unordered_map<int, vector<Bug*>> initBoard(const vector<Bug*> &bugs);
     int getBoardWidth() const;
+    void displayAllBugs() const;
+    void tapBoard();
 };
 
 } // board

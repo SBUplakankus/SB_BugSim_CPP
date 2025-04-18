@@ -4,11 +4,11 @@
 using namespace std;
 using namespace board;
 
-int main() {
+int main()
+{
     cout << "Bug Sim" << endl;
     CsvParser parser;
     const GameBoard* gameBoard = parser.getBugsFromCsv("../Files/bugs.csv");
-    cout << gameBoard->getBoardWidth() << endl;
-
+    gameBoard->displayAllBugs();
     return 0;
 }

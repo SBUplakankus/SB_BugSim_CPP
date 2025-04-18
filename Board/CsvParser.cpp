@@ -19,7 +19,8 @@ namespace board {
     int CsvParser::maxHeight = 0;
     int CsvParser::maxWidth = 0;
 
-    void CsvParser::parseLine(const string &line, vector<Bug*> &bugs) {
+    void CsvParser::parseLine(const string &line, vector<Bug*> &bugs)
+    {
         string temp;
         stringstream ss(line);
 
@@ -90,7 +91,8 @@ namespace board {
         bugs.push_back(bug);
     }
 
-    void CsvParser::load(const string &filename, vector<Bug*> &bugs) {
+    void CsvParser::load(const string &filename, vector<Bug*> &bugs)
+    {
         if(ifstream fin(filename); fin)
         {
             string line;
@@ -106,7 +108,8 @@ namespace board {
         }
     }
 
-    GameBoard* CsvParser::getBugsFromCsv(const string &filename) {
+    GameBoard* CsvParser::getBugsFromCsv(const string &filename)
+    {
         vector<Bug *> bugs;
         load(filename, bugs);
         auto* board = new GameBoard(maxWidth, maxHeight, bugs);

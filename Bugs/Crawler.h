@@ -12,10 +12,12 @@ namespace bugs
 class Crawler final : public Bug
 {
     public:
+    // https://www.youtube.com/watch?v=oz3f-ms-AJs Subclass Constructor
     Crawler(const int id, const int posX, const int posY, const int direction, const int size)
         : Bug(id, posX, posY, direction, size){}
 
-    void move() override;
+    void move(int &maxX, int &maxY) override;
+    string toString() override;
     ~Crawler() override;
 
 };

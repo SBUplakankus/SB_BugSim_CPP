@@ -17,7 +17,8 @@ namespace bugs
         int x;
         int y;
 
-        string toString() const {
+        string toString() const
+        {
             return to_string(x) + ", " + to_string(y);
         }
     };
@@ -35,7 +36,8 @@ namespace bugs
         public:
         Bug(int id, int posX, int posY, int direction, int size);
         virtual ~Bug();
-        virtual void move();
+        virtual void move(int &maxX, int &maxY);
+        virtual string toString();
 
 
 
@@ -50,7 +52,10 @@ namespace bugs
         int getId() const;
         int getSize() const;
         bool getIsAlive() const;
+        int getDirection() const;
         list<Position> getPath() const;
+        string directionToString() const;
+        string aliveToString() const;
 
         // Setters
         void setSize(int size);
