@@ -49,6 +49,8 @@ class CsvParser
      */
     static GameBoard* getBugsFromCsv(const string &filename);
 
+    static void writeBugHistoryToFile(GameBoard* &board);
+
 };
 
 } // board

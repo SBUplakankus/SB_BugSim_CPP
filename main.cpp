@@ -15,5 +15,6 @@ int main()
         gameBoard->tapBoard();
     }
     gameBoard->displayBugsHistory();
+    parser.writeBugHistoryToFile(gameBoard);
     return 0;
 }

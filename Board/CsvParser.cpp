@@ -116,5 +116,20 @@ namespace board {
         return board;
     }
 
+    void CsvParser::writeBugHistoryToFile(GameBoard *&board)
+    {
+        ofstream fout("../Files/bugs_life_history_date_time.out.txt");
+        if (fout)
+        {
+            fout << board->getBugsHistory() << endl;
+            fout.close();
+        }
+        else
+        {
+            cout << "Unable to open file" << endl;
+        }
+    }
+
+
 
 } // board

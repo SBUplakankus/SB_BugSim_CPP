@@ -36,6 +36,7 @@ class GameBoard
 
     static void fightBugs(Bug* &bug1, Bug* &bug2);
     void displayBugsHistory() const;
+    string getBugsHistory() const;
 };
 
 } // board

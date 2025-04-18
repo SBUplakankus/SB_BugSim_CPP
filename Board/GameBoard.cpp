@@ -131,10 +131,22 @@ namespace board {
         }
     }
 
-    void GameBoard::displayBugsHistory() const {
-        for (const auto bug: boardBugs) {
+    void GameBoard::displayBugsHistory() const
+    {
+        for (const auto bug: boardBugs)
+        {
             cout << bug->historyToString() << endl;
         }
+    }
+
+    string GameBoard::getBugsHistory() const
+    {
+        string bugHistory;
+        for (const auto bug: boardBugs)
+        {
+            bugHistory += bug->historyToString() + "\n";
+        }
+        return bugHistory;
     }
 
 
