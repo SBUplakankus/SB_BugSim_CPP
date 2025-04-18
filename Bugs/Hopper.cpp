@@ -11,6 +11,7 @@ namespace bugs {
     void Hopper::move(int &maxX, int &maxY)
     {
         Position pos = getPosition();
+        path.push_back(pos);
         switch (getDirection())
         {
             case 1: // UP
@@ -29,6 +30,14 @@ namespace bugs {
                 break;
         }
         setPosition(pos);
+
+        if (pos.x == maxX || pos.y == maxY || pos.x == 0 || pos.y == 0) {
+            int newDirection = rand() % 4 + 1;
+            while (newDirection == getDirection()) {
+                newDirection = rand() % 4 + 1;
+            }
+            setDirection(newDirection);
+        }
     }
 
     Hopper::~Hopper()

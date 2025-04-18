@@ -13,6 +13,7 @@ namespace bugs
     {
         // Clamping https://stackoverflow.com/questions/9323903/most-efficient-elegant-way-to-clip-a-number
         Position pos = getPosition();
+        path.push_back(pos);
         switch (getDirection())
         {
             case 1: // UP
@@ -31,6 +32,14 @@ namespace bugs
                 break;
         }
         setPosition(pos);
+
+        if (pos.x == maxX || pos.y == maxY || pos.x == 0 || pos.y == 0) {
+            int newDirection = rand() % 4 + 1;
+            while (newDirection == getDirection()) {
+                newDirection = rand() % 4 + 1;
+            }
+            setDirection(newDirection);
+        }
     }
 
     Crawler::~Crawler()

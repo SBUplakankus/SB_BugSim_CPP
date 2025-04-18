@@ -30,6 +30,11 @@ namespace bugs
         return "Bug";
     }
 
+    bool Bug::getIsAlive() const {
+        return this->isAlive;
+    }
+
+
     Position Bug::getPosition() const
     {
         return this->position;
@@ -52,6 +57,27 @@ namespace bugs
 
     int Bug::getId() const {
         return this->id;
+    }
+
+    void Bug::setSize(const int size) {
+        this->size = size;
+    }
+
+    void Bug::setIsAlive(const bool isAlive) {
+        this->isAlive = isAlive;
+    }
+
+
+    void Bug::growBug(const int growAmount) {
+        setSize(growAmount + getSize());
+    }
+
+    int Bug::getEatenBy() const {
+        return bugEatenBy;
+    }
+
+    void Bug::setEatenBy(const int eatenBy) {
+        bugEatenBy = eatenBy;
     }
 
     string Bug::directionToString() const
@@ -82,5 +108,9 @@ namespace bugs
             return "Alive";
 
         return "Dead";
+    }
+
+    void Bug::setDirection(const int direction) {
+        this->direction = direction;
     }
 } // bugs
