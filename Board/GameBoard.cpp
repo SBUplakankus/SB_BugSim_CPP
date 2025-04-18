@@ -47,4 +47,27 @@ namespace board {
         }
     }
 
+    void GameBoard::tapBoard()
+    {
+
+    }
+
+    void GameBoard::findBugById(const int bugId)
+    {
+        bool bugFound = false;
+        for (const auto bug: boardBugs)
+        {
+            if (bug->getId() == bugId)
+            {
+                bugFound = true;
+                cout << "Bug " + to_string(bugId) + " found." << endl;
+                cout << bug->toString() << endl;
+            }
+        }
+        if (!bugFound)
+        {
+            cout << "Bug " + to_string(bugId) + " not found." << endl;
+        }
+    }
+
 } // board

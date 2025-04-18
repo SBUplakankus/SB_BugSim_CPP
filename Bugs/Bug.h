@@ -39,8 +39,6 @@ namespace bugs
         virtual void move(int &maxX, int &maxY);
         virtual string toString();
 
-
-
         /**
          * Check to see if the way in front of the bug is blocked
          * @return True = If Way is Blocked, False = If Way Isn't

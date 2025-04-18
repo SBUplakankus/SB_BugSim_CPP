@@ -39,8 +39,8 @@ namespace bugs
     }
 
     string Crawler::toString() {
-        return "Hopper " + to_string(getId()) + ": (" + to_string(getPosition().x) + "," + to_string(getPosition().y) +
-            ") Size: " + to_string(getSize()) + " Direction: " + directionToString() + " Status: " + aliveToString();
+        return "Crawler " + to_string(getId()) + ": (" + to_string(getPosition().x) + "," + to_string(getPosition().y) +
+            "), Size: " + to_string(getSize()) + ", Direction: " + directionToString() + ", Status: " + aliveToString();
     }
 
 } // bugs

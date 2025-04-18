@@ -8,7 +8,8 @@ int main()
 {
     cout << "Bug Sim" << endl;
     CsvParser parser;
-    const GameBoard* gameBoard = parser.getBugsFromCsv("../Files/bugs.csv");
+    GameBoard* gameBoard = parser.getBugsFromCsv("../Files/bugs.csv");
     gameBoard->displayAllBugs();
+    gameBoard->findBugById(2);
     return 0;
 }

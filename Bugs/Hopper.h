@@ -22,8 +22,4 @@ namespace bugs
     };
 }
 
-
-
-
-
 #endif //HOPPER_H

@@ -19,7 +19,6 @@ class Crawler final : public Bug
     void move(int &maxX, int &maxY) override;
     string toString() override;
     ~Crawler() override;
-
 };
 
 } // bugs

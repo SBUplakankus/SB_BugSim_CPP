@@ -32,6 +32,7 @@ class GameBoard
     int getBoardWidth() const;
     void displayAllBugs() const;
     void tapBoard();
+    void findBugById(const int bugId);
 };
 
 } // board

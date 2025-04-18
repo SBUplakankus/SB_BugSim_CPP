@@ -39,10 +39,7 @@ namespace bugs {
     string Hopper::toString()
     {
         return "Hopper " + to_string(getId()) + ": (" + to_string(getPosition().x) + "," + to_string(getPosition().y) +
-            ") Size: " + to_string(getSize()) + " Direction: " + directionToString() + " Hop Length: " + to_string(hopLength)
-                + " Status: " + aliveToString();
+            "), Size: " + to_string(getSize()) + ", Direction: " + directionToString() + ", Hop Length: " + to_string(hopLength)
+                + ", Status: " + aliveToString();
     }
-
-
-
 }
