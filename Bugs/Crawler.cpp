@@ -5,4 +5,12 @@
 #include "Crawler.h"
 
 namespace bugs {
+    void Crawler::move() {
+
+    }
+
+    Crawler::~Crawler() {
+
+    }
+
 } // bugs

@@ -17,8 +17,6 @@ namespace bugs
         int x;
         int y;
 
-        Position(const int x, const int y) : x(x), y(y) {}
-
         string toString() const {
             return to_string(x) + ", " + to_string(y);
         }
@@ -28,16 +26,18 @@ namespace bugs
     {
         private:
         int id;
+        int direction;
         Position position;
         int size;
         bool isAlive;
         list<Position> path;
 
         public:
-        Bug(int id, Position position, int size);
-        virtual ~Bug() = 0;
-
+        Bug(int id, int posX, int posY, int direction, int size);
+        virtual ~Bug();
         virtual void move();
+
+
 
         /**
          * Check to see if the way in front of the bug is blocked
@@ -56,9 +56,6 @@ namespace bugs
         void setSize(int size);
         void setIsAlive(bool isAlive);
         void setPosition(const Position& position);
-
-
-
     };
 
 } // bugs

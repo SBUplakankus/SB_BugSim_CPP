@@ -12,10 +12,11 @@ namespace bugs
 class Crawler final : public Bug
 {
     public:
-    Crawler(int id, Position position, int size);
-    void move() override;
+    Crawler(const int id, const int posX, const int posY, const int direction, const int size)
+        : Bug(id, posX, posY, direction, size){}
 
-    ~Crawler() override = default;
+    void move() override;
+    ~Crawler() override;
 
 };
 

@@ -14,10 +14,10 @@ namespace bugs
         int hopLength;
 
         public:
-        Hopper(int id, Position position, int size, int hopLength);
+        Hopper(const int id, const int posX, const int posY, const int direction, const int size, const int hopLength)
+        : Bug(id, posX, posY, direction, size) {this->hopLength = hopLength;}
         void move() override;
-
-
+        ~Hopper() override;
     };
 }
 

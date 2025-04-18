@@ -21,10 +21,15 @@ class GameBoard
     private:
     int boardWidth;
     int boardHeight;
-    unordered_map<pair<int,int>, vector<Bug*>> boardCells;
+    vector<Bug*> boardBugs;
+    unordered_map<int, vector<Bug*>> boardCells;
+    static int getPositionKey(const Position &pos);
 
     public:
-    void initBoard();
+    GameBoard(const int width, const int height, const vector<Bug*> &bugs);
+
+    static unordered_map<int, vector<Bug*>> initBoard(const vector<Bug*> &bugs);
+    int getBoardWidth() const;
 };
 
 } // board

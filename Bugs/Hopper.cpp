@@ -3,3 +3,15 @@
 //
 
 #include "Hopper.h"
+
+namespace bugs {
+    void Hopper::move() {
+
+    }
+
+    Hopper::~Hopper() {
+
+    }
+
+
+}
