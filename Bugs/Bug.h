@@ -19,7 +19,7 @@ namespace bugs
 
         string toString() const
         {
-            return to_string(x) + ", " + to_string(y);
+            return "(" + to_string(x) + ", " + to_string(y) + ")";
         }
     };
 
@@ -65,7 +65,8 @@ namespace bugs
         void growBug(const int growAmount);
         void setEatenBy(const int eatenBy);
 
-        
+        string pathToString() const;
+        string historyToString() const;
     };
 
 } // bugs

@@ -113,4 +113,18 @@ namespace bugs
     void Bug::setDirection(const int direction) {
         this->direction = direction;
     }
+
+    string Bug::pathToString() const {
+        string returnString;
+        for (auto position: path) {
+            returnString += position.toString() + ", ";
+        }
+        return returnString;
+    }
+
+
+    string Bug::historyToString() const {
+        return "Bug " + to_string(getId()) + ": " + pathToString() + " Eaten by " + to_string(getEatenBy());
+    }
+
 } // bugs

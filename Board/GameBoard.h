@@ -33,7 +33,9 @@ class GameBoard
     void displayAllBugs() const;
     void tapBoard();
     void findBugById(const int bugId);
-    void fightBugs(Bug* &bug1, Bug* &bug2);
+
+    static void fightBugs(Bug* &bug1, Bug* &bug2);
+    void displayBugsHistory() const;
 };
 
 } // board

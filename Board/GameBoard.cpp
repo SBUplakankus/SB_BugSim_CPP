@@ -53,11 +53,16 @@ namespace board {
         {
             if (bug->getIsAlive())
             {
+                // Clear the old position vector
                 int key = getPositionKey(bug->getPosition());
                 boardCells[key].clear();
+
+                // Move to bug and add to the new position vector
                 bug->move(boardWidth, boardHeight);
                 key = getPositionKey(bug->getPosition());
                 boardCells[key].push_back(bug);
+
+                // If there is more than 1 bug on the vector start a fight
                 if (boardCells[key].size() > 1)
                 {
                     fightBugs(boardCells[key].at(0), boardCells[key].at(1));
@@ -78,13 +83,15 @@ namespace board {
         {
             bug1->growBug(bug2Size);
             bug2->setIsAlive(false);
-            cout << "Bug " + to_string(bug1->getId()) + " ate " + to_string(bug2->getId()) << endl;
+            bug2->setEatenBy(bug1->getId());
+            // cout << "Bug " + to_string(bug1->getId()) + " ate " + to_string(bug2->getId()) << endl;
         }
         else if (bug2Size > bug1Size)
         {
             bug2->growBug(bug1Size);
             bug1->setIsAlive(false);
-            cout << "Bug " + to_string(bug2->getId()) + " ate " + to_string(bug1->getId()) << endl;
+            bug1->setEatenBy(bug2->getId());
+            // cout << "Bug " + to_string(bug2->getId()) + " ate " + to_string(bug1->getId()) << endl;
         }
         else
         {
@@ -92,13 +99,15 @@ namespace board {
             {
                 bug1->growBug(bug2Size);
                 bug2->setIsAlive(false);
-                cout << "Bug " + to_string(bug1->getId()) + " ate " + to_string(bug2->getId()) << endl;
+                bug2->setEatenBy(bug1->getId());
+                // cout << "Bug " + to_string(bug1->getId()) + " ate " + to_string(bug2->getId()) << endl;
             }
             else
             {
                 bug2->growBug(bug1Size);
                 bug1->setIsAlive(false);
-                cout << "Bug " + to_string(bug2->getId()) + " ate " + to_string(bug1->getId()) << endl;
+                bug1->setEatenBy(bug2->getId());
+                // cout << "Bug " + to_string(bug2->getId()) + " ate " + to_string(bug1->getId()) << endl;
             }
         }
     }
@@ -121,5 +130,12 @@ namespace board {
             cout << "Bug " + to_string(bugId) + " not found." << endl;
         }
     }
+
+    void GameBoard::displayBugsHistory() const {
+        for (const auto bug: boardBugs) {
+            cout << bug->historyToString() << endl;
+        }
+    }
+
 
 } // board
