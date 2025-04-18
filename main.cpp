@@ -11,6 +11,7 @@ int main()
     GameBoard* gameBoard = parser.getBugsFromCsv("../Files/bugs.csv");
     gameBoard->displayAllBugs();
     gameBoard->findBugById(2);
+    gameBoard->displayCellInfo();
     for (int i = 0; i < 10; i++) {
         gameBoard->tapBoard();
     }

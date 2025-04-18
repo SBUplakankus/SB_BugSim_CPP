@@ -52,7 +52,7 @@ namespace board {
             getline(ss, temp, ',');
             const int size = stoi(temp);
 
-            bug = new Crawler(id, posX, posY, direction, size);
+            bug = new Crawler(id, "Crawler", posX, posY, direction, size);
         }
         else if (temp == "H")
         {
@@ -81,7 +81,7 @@ namespace board {
             getline(ss, temp, ',');
             const int hop = stoi(temp);
 
-            bug = new Hopper(id, posX, posY, direction, size, hop);
+            bug = new Hopper(id, "Hopper", posX, posY, direction, size, hop);
         }
         else
         {
@@ -129,7 +129,4 @@ namespace board {
             cout << "Unable to open file" << endl;
         }
     }
-
-
-
 } // board

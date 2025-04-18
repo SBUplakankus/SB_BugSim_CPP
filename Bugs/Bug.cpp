@@ -7,8 +7,9 @@
 namespace bugs
 {
 
-    Bug::Bug(const int id, const int posX, const int posY, const int direction, const int size) {
+    Bug::Bug(const int id, const string& type, const int posX, const int posY, const int direction, const int size) {
         this->id = id;
+        this->bugType = type;
         const Position pos(posX, posY);
         this->position = pos;
         this->direction = direction;
@@ -79,6 +80,15 @@ namespace bugs
     void Bug::setEatenBy(const int eatenBy) {
         bugEatenBy = eatenBy;
     }
+
+    string Bug::getBugType() const {
+        return bugType;
+    }
+
+    void Bug::setBugType(const string &bugType) {
+        this->bugType = bugType;
+    }
+
 
     string Bug::directionToString() const
     {

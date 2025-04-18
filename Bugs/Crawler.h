@@ -13,8 +13,8 @@ class Crawler final : public Bug
 {
     public:
     // https://www.youtube.com/watch?v=oz3f-ms-AJs Subclass Constructor
-    Crawler(const int id, const int posX, const int posY, const int direction, const int size)
-        : Bug(id, posX, posY, direction, size){}
+    Crawler(const int id, const string &type, const int posX, const int posY, const int direction, const int size)
+        : Bug(id, type, posX, posY, direction, size){}
 
     void move(int &maxX, int &maxY) override;
     string toString() override;

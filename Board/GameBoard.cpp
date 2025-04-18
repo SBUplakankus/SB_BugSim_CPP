@@ -22,17 +22,22 @@ namespace board {
         return this->boardWidth;
     }
 
-    int GameBoard::getPositionKey(const Position &pos)
+    int GameBoard::getBoardHeight() const
     {
-        return pos.x * 100 + pos.y;
+        return this->boardHeight;
     }
 
-    unordered_map<int, vector<Bug*>> GameBoard::initBoard(const vector<Bug*> &bugs)
+    string GameBoard::getPositionKey(const Position &pos)
     {
-        unordered_map<int, vector<Bug*>> boardCells;
+        return pos.toString();
+    }
+
+    unordered_map<string, vector<Bug*>> GameBoard::initBoard(const vector<Bug*> &bugs)
+    {
+        unordered_map<string, vector<Bug*>> boardCells;
         for (auto bug: bugs)
         {
-            int key = getPositionKey(bug->getPosition());
+            string key = getPositionKey(bug->getPosition());
             boardCells[key].push_back(bug);
         }
         return boardCells;
@@ -54,7 +59,7 @@ namespace board {
             if (bug->getIsAlive())
             {
                 // Clear the old position vector
-                int key = getPositionKey(bug->getPosition());
+                string key = getPositionKey(bug->getPosition());
                 boardCells[key].clear();
 
                 // Move to bug and add to the new position vector
@@ -147,6 +152,29 @@ namespace board {
             bugHistory += bug->historyToString() + "\n";
         }
         return bugHistory;
+    }
+
+    void GameBoard::displayCellInfo(){
+        for (int i = 0; i < boardWidth; i++) {
+            for (int j = 0; j < boardHeight; j++) {
+                Position pos(i, j);
+                if (string key = getPositionKey(pos); isCellEmpty(key)) {
+                    cout << pos.toString() + ", Empty" << endl;
+                }
+                else {
+                    const auto bug = boardCells[key].at(0);
+                    cout << pos.toString() + ", " + bug->getBugType() + " " + to_string(bug->getId()) << endl;
+                }
+            }
+        }
+    }
+
+    bool GameBoard::isCellEmpty(const string &key) {
+        bool empty = true;
+        if (const int count = boardCells[key].size(); count > 0) {
+            empty = false;
+        }
+        return empty;
     }
 
 

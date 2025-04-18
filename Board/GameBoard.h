@@ -22,14 +22,15 @@ class GameBoard
     int boardWidth;
     int boardHeight;
     vector<Bug*> boardBugs;
-    unordered_map<int, vector<Bug*>> boardCells;
-    static int getPositionKey(const Position &pos);
+    unordered_map<string, vector<Bug*>> boardCells;
+    static string getPositionKey(const Position &pos);
 
     public:
     GameBoard(const int width, const int height, const vector<Bug*> &bugs);
 
-    static unordered_map<int, vector<Bug*>> initBoard(const vector<Bug*> &bugs);
+    static unordered_map<string, vector<Bug*>> initBoard(const vector<Bug*> &bugs);
     int getBoardWidth() const;
+    int getBoardHeight() const;
     void displayAllBugs() const;
     void tapBoard();
     void findBugById(const int bugId);
@@ -37,6 +38,8 @@ class GameBoard
     static void fightBugs(Bug* &bug1, Bug* &bug2);
     void displayBugsHistory() const;
     string getBugsHistory() const;
+    void displayCellInfo();
+    bool isCellEmpty(const string &key);
 };
 
 } // board

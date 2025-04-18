@@ -27,6 +27,7 @@ namespace bugs
     {
         private:
         int id;
+        string bugType;
         int direction;
         Position position;
         int size;
@@ -35,7 +36,7 @@ namespace bugs
 
     public:
         list<Position> path;
-        Bug(int id, int posX, int posY, int direction, int size);
+        Bug(int id, const string& type, int posX, int posY, int direction, int size);
         virtual ~Bug();
         virtual void move(int &maxX, int &maxY);
         virtual string toString();
@@ -56,6 +57,7 @@ namespace bugs
         string directionToString() const;
         string aliveToString() const;
         int getEatenBy() const;
+        string getBugType() const;
 
         // Setters
         void setSize(int size);
@@ -64,6 +66,7 @@ namespace bugs
         void setDirection(int direction);
         void growBug(const int growAmount);
         void setEatenBy(const int eatenBy);
+        void setBugType(const string &bugType);
 
         string pathToString() const;
         string historyToString() const;
