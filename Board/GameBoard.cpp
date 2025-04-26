@@ -54,6 +54,7 @@ namespace board {
 
     void GameBoard::tapBoard()
     {
+        cout << "Tapped Board" << endl;
         for (const auto bug: boardBugs)
         {
             if (bug->getIsAlive())
@@ -155,8 +156,8 @@ namespace board {
     }
 
     void GameBoard::displayCellInfo(){
-        for (int i = 0; i < boardWidth; i++) {
-            for (int j = 0; j < boardHeight; j++) {
+        for (int i = 0; i <= boardWidth; i++) {
+            for (int j = 0; j <= boardHeight; j++) {
                 Position pos(i, j);
                 if (string key = getPositionKey(pos); isCellEmpty(key)) {
                     cout << pos.toString() + ", Empty" << endl;
@@ -175,6 +176,10 @@ namespace board {
             empty = false;
         }
         return empty;
+    }
+
+    vector<Bug*> GameBoard::getBugs() const {
+        return boardBugs;
     }
 
 

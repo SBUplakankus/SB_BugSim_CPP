@@ -7,7 +7,8 @@
 namespace bugs
 {
 
-    Bug::Bug(const int id, const string& type, const int posX, const int posY, const int direction, const int size) {
+    Bug::Bug(const int id, const string& type, const int posX, const int posY, const int direction, const int size)
+    {
         this->id = id;
         this->bugType = type;
         const Position pos(posX, posY);
@@ -27,11 +28,13 @@ namespace bugs
 
     }
 
-    string Bug::toString() {
+    string Bug::toString()
+    {
         return "Bug";
     }
 
-    bool Bug::getIsAlive() const {
+    bool Bug::getIsAlive() const
+    {
         return this->isAlive;
     }
 
@@ -113,14 +116,16 @@ namespace bugs
         return direction;
     }
 
-    string Bug::aliveToString() const {
+    string Bug::aliveToString() const
+    {
         if (this->isAlive)
             return "Alive";
 
         return "Dead";
     }
 
-    void Bug::setDirection(const int direction) {
+    void Bug::setDirection(const int direction)
+    {
         this->direction = direction;
     }
 

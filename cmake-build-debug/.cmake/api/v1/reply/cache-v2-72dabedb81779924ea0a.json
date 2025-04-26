@@ -1270,6 +1270,22 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "FreeType_LIB",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "C:/SFML-2.6.2/lib/libfreetype.a"
+		},
+		{
 			"name" : "SB_BugSim_CPP_BINARY_DIR",
 			"properties" : 
 			[
@@ -1304,6 +1320,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "C:/Users/tremo/Documents/GitHub/SB_BugSim_CPP"
+		},
+		{
+			"name" : "SFML_DOC_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SFML_DOC_DIR-NOTFOUND"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

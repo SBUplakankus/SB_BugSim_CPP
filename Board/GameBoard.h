@@ -7,7 +7,6 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-
 #include "../Bugs/Bug.h"
 
 using namespace std;
@@ -38,6 +37,7 @@ class GameBoard
     static void fightBugs(Bug* &bug1, Bug* &bug2);
     void displayBugsHistory() const;
     string getBugsHistory() const;
+    vector<Bug*> getBugs() const;
     void displayCellInfo();
     bool isCellEmpty(const string &key);
 };
