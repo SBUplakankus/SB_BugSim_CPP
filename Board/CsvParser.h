@@ -49,6 +49,10 @@ class CsvParser
      */
     static GameBoard* getBugsFromCsv(const string &filename);
 
+    /**
+     * Write out the history of each bug onto a text file after the simulation ends
+     * @param board The Game Board to get the data from
+     */
     static void writeBugHistoryToFile(GameBoard* &board);
 
 };

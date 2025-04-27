@@ -9,6 +9,7 @@
 #include <sstream>
 
 #include "../Bugs/Crawler.h"
+#include "../Bugs/Drinker.h"
 #include "../Bugs/Hopper.h"
 
 namespace board {
@@ -82,6 +83,32 @@ namespace board {
             const int hop = stoi(temp);
 
             bug = new Hopper(id, "Hopper", posX, posY, direction, size, hop);
+        }
+        else if (temp == "D")
+        {
+            // Get the next value and save it to temp since it's an int
+            getline(ss, temp, ',');
+            // Set the structs value to the temp variable converted from a string to an int
+            const int id = stoi(temp);
+
+            getline(ss, temp, ',');
+            const int posX = stoi(temp);
+            if (posX > maxWidth)
+            {
+                maxWidth = posX;
+            }
+            getline(ss, temp, ',');
+            const int posY = stoi(temp);
+            if (posY > maxHeight)
+            {
+                maxHeight = posY;
+            }
+            getline(ss, temp, ',');
+            const int direction = stoi(temp);
+            getline(ss, temp, ',');
+            const int size = stoi(temp);
+
+            bug = new Drinker(id, "Drinker", posX, posY, direction, size);
         }
         else
         {

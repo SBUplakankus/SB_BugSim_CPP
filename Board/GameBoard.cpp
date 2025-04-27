@@ -34,6 +34,7 @@ namespace board {
 
     unordered_map<string, vector<Bug*>> GameBoard::initBoard(const vector<Bug*> &bugs)
     {
+        // Create the map of the board and assign each pug to their poisition
         unordered_map<string, vector<Bug*>> boardCells;
         for (auto bug: bugs)
         {
@@ -57,6 +58,7 @@ namespace board {
         cout << "Tapped Board" << endl;
         for (const auto bug: boardBugs)
         {
+
             if (bug->getIsAlive())
             {
                 // Clear the old position vector
@@ -85,35 +87,33 @@ namespace board {
         const int bug1Size = bug1->getSize();
         const int bug2Size = bug2->getSize();
 
+        // Some repeated code but compare the bugs sizes then decide a winner
         if (bug1Size > bug2Size)
         {
             bug1->growBug(bug2Size);
             bug2->setIsAlive(false);
             bug2->setEatenBy(bug1->getId());
-            // cout << "Bug " + to_string(bug1->getId()) + " ate " + to_string(bug2->getId()) << endl;
         }
         else if (bug2Size > bug1Size)
         {
             bug2->growBug(bug1Size);
             bug1->setIsAlive(false);
             bug1->setEatenBy(bug2->getId());
-            // cout << "Bug " + to_string(bug2->getId()) + " ate " + to_string(bug1->getId()) << endl;
         }
         else
         {
+            // If the sizes are even, select a random winner
             if (const int rng = rand() % 2; rng == 1)
             {
                 bug1->growBug(bug2Size);
                 bug2->setIsAlive(false);
                 bug2->setEatenBy(bug1->getId());
-                // cout << "Bug " + to_string(bug1->getId()) + " ate " + to_string(bug2->getId()) << endl;
             }
             else
             {
                 bug2->growBug(bug1Size);
                 bug1->setIsAlive(false);
                 bug1->setEatenBy(bug2->getId());
-                // cout << "Bug " + to_string(bug2->getId()) + " ate " + to_string(bug1->getId()) << endl;
             }
         }
     }

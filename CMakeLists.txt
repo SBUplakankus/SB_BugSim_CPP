@@ -15,7 +15,9 @@ add_executable(SB_BugSim_CPP main.cpp
         Board/CsvParser.cpp
         Board/CsvParser.h
         Graphics/BoardDisplay.cpp
-        Graphics/BoardDisplay.h)
+        Graphics/BoardDisplay.h
+        Bugs/Drinker.cpp
+        Bugs/Drinker.h)
 
 
 set(SFML_STATIC_LIBRARIES TRUE)

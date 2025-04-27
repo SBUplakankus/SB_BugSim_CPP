@@ -12,6 +12,8 @@ namespace bugs
     void Crawler::move(int &maxX, int &maxY)
     {
         // Clamping https://stackoverflow.com/questions/9323903/most-efficient-elegant-way-to-clip-a-number
+
+        // Update the crawlers position, clamping it inside the boundaries of the grid
         Position pos = getPosition();
         path.push_back(pos);
         switch (getDirection())

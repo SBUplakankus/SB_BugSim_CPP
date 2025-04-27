@@ -17,12 +17,9 @@ int main()
     gameBoard->displayAllBugs();
     gameBoard->findBugById(2);
     gameBoard->displayCellInfo();
-    gameDisplay.initBoardDisplay(gameBoard->getBugs(), gameBoard, gameBoard->getBoardWidth(), gameBoard->getBoardHeight());
 
-    for (int i = 0; i < 10; i++)
-    {
-        gameBoard->tapBoard();
-    }
+    // Press space bar to progress sim
+    gameDisplay.initBoardDisplay(gameBoard->getBugs(), gameBoard, gameBoard->getBoardWidth(), gameBoard->getBoardHeight());
     gameBoard->displayBugsHistory();
     parser.writeBugHistoryToFile(gameBoard);
     return 0;

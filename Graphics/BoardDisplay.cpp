@@ -21,6 +21,7 @@ namespace graphics {
         gameWindow = &window;
         window.setFramerateLimit(30);
 
+        // Adjust cell size based on vector size and display size
         const int cellWidth = (displayWidth - menuWidth) / (gridWidth + 1);
         const int cellHeight = displayHeight / (gridHeight + 1);
         int counter = 0;
@@ -31,8 +32,12 @@ namespace graphics {
             {
                 Position pos(i, j);
                 auto tile = new RectangleShape(Vector2f(cellWidth, cellHeight));
+
+                // Make every second tile a different colour
                 tile->setFillColor(counter % 2 == 0 ? boardColor1 : boardColor2);
                 tile->setPosition(Vector2f(i * cellWidth, j * cellHeight));
+
+                // Add to board map used for positioning and tile vector used for rendering
                 boardMap[pos.toString()] = tile;
                 boardTiles.push_back(tile);
                 counter++;
@@ -47,15 +52,18 @@ namespace graphics {
     {
         gameWindow->clear();
 
+        // Render all the board tiles
         for (const auto &tile: boardTiles)
         {
             gameWindow->draw(*tile);
         }
 
+        // Render all the bug circles
         updateBoardDisplay();
 
         gameWindow->display();
 
+        // While the window is open, update the game on space pressed
         while (gameWindow->isOpen())
         {
             Event event;
@@ -82,10 +90,14 @@ namespace graphics {
     {
         for (const auto &bug: boardBugs)
         {
+            // Get the bugs positioning and find the tile for that position in the map
             auto pos = bug->getPosition();
             const auto tile = boardMap[pos.toString()];
+
+            // Scale the circle to fit inside the tile
             auto* bugCircle = new CircleShape(tile->getSize().x / 2);
 
+            // Set bug colour based on bug type
             if (bug->getBugType() == "Crawler")
             {
                 bugCircle->setFillColor(crawlerColor);
@@ -94,7 +106,12 @@ namespace graphics {
             {
                 bugCircle->setFillColor(hopperColor);
             }
+            else if (bug->getBugType() == "Drinker")
+            {
+                bugCircle->setFillColor(drinkerColor);
+            }
 
+            // Set the position of the bug to be inside the tile and add the bug to the map
             bugCircle->setPosition(tile->getPosition().x, tile->getPosition().y);
             bugCircleMap[bug->getId()] = bugCircle;
         }
@@ -105,12 +122,14 @@ namespace graphics {
     {
         gameWindow->clear();
 
-        for (const auto tile: boardTiles) {
+        for (const auto tile: boardTiles)
+        {
             gameWindow->draw(*tile);
         }
 
         for (const auto &bug: boardBugs)
         {
+            // If the bug is alive, update its position to the latest one in the simulation
             if (bug->getIsAlive())
             {
                 auto pos = bug->getPosition();

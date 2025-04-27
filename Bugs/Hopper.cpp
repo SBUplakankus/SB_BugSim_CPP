@@ -10,6 +10,7 @@ using namespace std;
 namespace bugs {
     void Hopper::move(int &maxX, int &maxY)
     {
+        // Update the hoppers position, clamping it inside the boundaries of the grid
         Position pos = getPosition();
         path.push_back(pos);
         switch (getDirection())
