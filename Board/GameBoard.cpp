@@ -55,7 +55,6 @@ namespace board {
 
     void GameBoard::tapBoard()
     {
-        cout << "Tapped Board" << endl;
         for (const auto bug: boardBugs)
         {
 
